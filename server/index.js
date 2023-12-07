@@ -1,6 +1,11 @@
 const mailer=require('nodemailer')
+const express=require('express')
+const http=require('http')
 
-const mailtransport=mailer.createTransport({
+const app=express()
+const server=http.createServer(app)
+
+/*const mailtransport=mailer.createTransport({
     service:'gmail',
     auth:{
         
@@ -22,4 +27,8 @@ mailtransport.sendMail(mailOptions, function(err, data) {
     } else {
       console.log("Email sent successfully");
     }
-  });
+
+  });*/
+server.listen('3001',()=>{
+  console.log("Listening successfully")
+})
