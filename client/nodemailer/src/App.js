@@ -1,12 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
 import {useState} from 'react'
+import axios from 'axios'
+
+
 function App() {
   const [email,semail]=useState('');
   const [sub,ssub]=useState('');
   const [content,scontent]=useState('');
-  function clicker(){
-    console.log(email,sub,content)
+  const clicker= async()=>{
+      const obj={
+        'mail':email,
+        'sub':sub,
+        'cont':content
+      }
+      axios.post('http://localhost:3001/post',obj).then((res)=>console.log(res))    
   }
   return (
     <div className="App">
